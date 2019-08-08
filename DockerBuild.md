@@ -19,10 +19,6 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 Create a file named e.g. `DockerBuild.ps1`
 ```powershell
-param (
-    [string]$target = "Build"
- )
-
 # Build the dockerfile into a image called 'buildcontainer'
 docker build -t buildcontainer .
 
@@ -33,8 +29,8 @@ docker build -t buildcontainer .
 # -m Memory limit (1GB is default on Windows)
 # -v Bind mount a volume <path outside container>:<path inside container> ${PWD} is the current working dir
 # "buildcontainer" name of the image
-# "powershell .\Build.ps1 $target" the command that are run inside the container
-docker run -i --rm -w c:\build -m 2gb -v ${PWD}:c:\build buildcontainer powershell .\Build.ps1 $target
+# "powershell .\Build.ps1 $args" the command that are run inside the container, and the arguments running this script are passed to Build.ps1 inside docker
+docker run -i --rm -w c:\build -m 2gb -v ${PWD}:c:\build buildcontainer powershell .\Build.ps1 $args
 ```
 
 ### 3. Start build ###
