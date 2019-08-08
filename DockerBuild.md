@@ -35,5 +35,5 @@ docker run -i --rm -w c:\build -m 2gb -v ${PWD}:c:\build buildcontainer powershe
 
 ### 3. Start build ###
 ```powershell 
-.\DockerBuild.ps1 -Target:Build
+.\DockerBuild.ps1 Build
 ```
