@@ -9,7 +9,7 @@
 
 ### 1. Create a dockerfile ###
 
-This example is a Windows Server 2019 with .net framework 4.7.2 installed
+This example is a Windows Server 2016 with .net framework 4.7.2 installed
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/sdk:4.7.2-windowsservercore-ltsc2016
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
